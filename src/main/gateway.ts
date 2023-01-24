@@ -1,6 +1,5 @@
-import AuthGatewayImpl from '../adapter/gateway/AuthGateway';
+import AuthGatewayImpl from "@/adapter/gateway/AuthGateway";
 
-import { axios, fetch } from './http-client';
+import { axios, fetch } from "./http-client";
 
-export const authGateway = new AuthGatewayImpl(fetch);
-
+export const authGateway = new AuthGatewayImpl(axios);

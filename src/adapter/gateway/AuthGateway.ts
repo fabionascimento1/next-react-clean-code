@@ -1,19 +1,22 @@
-import HttpClient from './HttpClient';
+import HttpClient from "./HttpClient";
 
-import LoginRequest from '../model/dto/request/LoginRequest';
-import LoginResponse from '../model/dto/response/LoginResponse';
+import LoginRequest from "@/adapter/model/dto/request/LoginRequest";
+import LoginResponse from "@/adapter/model/dto/response/LoginResponse";
 
 export interface AuthGateway {
   login(request: LoginRequest): Promise<LoginResponse>;
 }
 
 class AuthGatewayImpl implements AuthGateway {
-  constructor(private readonly client: HttpClient) { }
+  constructor(private readonly client: HttpClient) {}
 
   async login(request: LoginRequest): Promise<LoginResponse> {
     const response = await this.client.request<LoginResponse>({
-      method: 'POST',
-      url: 'https://dummyjson.com/auth/login',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      url: "https://api.vitaverse.com.br/api/v1/login",
       body: request,
     });
 

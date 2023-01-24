@@ -1,17 +1,14 @@
-'use client'
-import { useController } from '@/main/controller';
-import React, { useState, ChangeEvent } from 'react'
+"use client";
+import { useController } from "@/main/controller";
+import React, { useState, ChangeEvent } from "react";
 
 export default function Home() {
-
   const { userController } = useController();
-
-  const [username, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-
+  const [username, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   function onChangeInput(e: ChangeEvent<HTMLInputElement>) {
-    const setState = e.target.name === 'username' ? setEmail : setPassword;
+    const setState = e.target.name === "username" ? setEmail : setPassword;
     setState(e.target.value);
   }
 
@@ -20,9 +17,21 @@ export default function Home() {
   }
   return (
     <div>
-      <input name='username' placeholder='username' type='text' value={username} onChange={onChangeInput} />
-      <input name='password' placeholder='password' type='password' value={password} onChange={onChangeInput} />
-      <input type='button' value='Cadastrar' onClick={onClickLogin} />
+      <input
+        name="username"
+        placeholder="username"
+        type="text"
+        value={username}
+        onChange={onChangeInput}
+      />
+      <input
+        name="password"
+        placeholder="password"
+        type="password"
+        value={password}
+        onChange={onChangeInput}
+      />
+      <input type="button" value="Cadastrar" onClick={onClickLogin} />
     </div>
-  )
+  );
 }
