@@ -16,7 +16,7 @@ class AuthGatewayImpl implements AuthGateway {
         "Content-Type": "application/json",
       },
       method: "POST",
-      url: "https://api.vitaverse.com.br/api/v1/login",
+      url: "http://localhost:3000/api/login",
       body: request,
     });
 

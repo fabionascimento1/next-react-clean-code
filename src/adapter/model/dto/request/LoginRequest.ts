@@ -1,5 +1,8 @@
 class LoginRequest {
-  constructor(private readonly username: string, private readonly password: string) { };
+  constructor(
+    private readonly username: string,
+    private readonly password: string
+  ) {}
 }
 
 export default LoginRequest;
